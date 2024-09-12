@@ -1,0 +1,27 @@
+{
+    "family": "my-task-Nodejs",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+      {
+        "name": "ecs-container1",
+        "image": "654654194612.dkr.ecr.ap-south-1.amazonaws.com/mashudrepo:latest",
+        "cpu": 256,
+        "memory": 512,
+        "essential": true,
+        "portMappings": [
+          {
+            "containerPort": 4000,
+            "hostPort": 4000
+          }
+        ]
+      }
+    ],
+    "requiresCompatibilities": [
+      "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "executionRoleArn": "arn:aws:iam::654654194612:role/ECSTaskExecution-Role",
+    "taskRoleArn": "arn:aws:iam::654654194612:role/ecsTaskRole"
+  }
+  
