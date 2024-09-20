@@ -1,15 +1,12 @@
-FROM node:22-alpine
+# Use the official Nginx image as a base
+FROM nginx:alpine
 
-ENV PORT=4000
+# Copy the content of the current directory to the Nginx HTML directory
+COPY / /usr/share/nginx/html/
 
-WORKDIR /usr/src/app
 
-# Install dependencies
-COPY package.json /usr/src/app/
-RUN npm install
+# Expose port 50000
+EXPOSE 50000
 
-# Copy source
-COPY server.js /usr/src/app
-
-EXPOSE $PORT
-CMD [ "npm", "start" ]
+# Start Nginx when the container launches
+CMD ["nginx", "-g", "daemon off;"]
