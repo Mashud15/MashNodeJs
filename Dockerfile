@@ -14,7 +14,7 @@ RUN npm install
 COPY server.js ./
 
 # Expose port 50000
-EXPOSE 50000
+EXPOSE 5000
 
 # Start the Node.js application
 CMD ["npm", "start"]
